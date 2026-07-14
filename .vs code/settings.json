@@ -1,0 +1,52 @@
+{
+    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/out",
+
+    "latex-workshop.latex.autoBuild.run": "onSave",
+
+    "latex-workshop.view.pdf.viewer": "tab",
+
+    "latex-workshop.synctex.afterBuild.enabled": true,
+
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.bcf",
+        "*.blg",
+        "*.fdb_latexmk",
+        "*.fls",
+        "*.log",
+        "*.lof",
+        "*.lot",
+        "*.nav",
+        "*.out",
+        "*.run.xml",
+        "*.snm",
+        "*.synctex.gz",
+        "*.toc"
+    ],
+
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        }
+    ],
+
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
+        }
+    ],
+
+    "latex-workshop.latex.rootFile.useSubFile": true
+}
