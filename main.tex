@@ -1,0 +1,182 @@
+\documentclass[
+12pt,
+openright,
+oneside,
+a4paper,
+chapter=TITLE,
+section=TITLE,
+brazilian
+]{abntex2}
+
+% ----------------------------------------------------------
+% Pacotes básicos
+% ----------------------------------------------------------
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{graphicx}
+
+% Posicionamento da capa
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% ----------------------------------------------------------
+% Citações
+% ----------------------------------------------------------
+
+\usepackage{csquotes}
+
+% ----------------------------------------------------------
+% Bibliografia
+% ----------------------------------------------------------
+
+\usepackage[
+    backend=biber,
+    style=abnt,
+    language=brazilian,
+    isbn=false
+]{biblatex}
+
+\addbibresource{bibliografia/bibliografia.bib}
+
+% ----------------------------------------------------------
+% Configurações personalizadas
+% ----------------------------------------------------------
+
+\input{config/comandos}
+
+% ----------------------------------------------------------
+% Informações da tese
+% ----------------------------------------------------------
+
+\titulo{Título provisório da tese}
+
+\autor{Luiz André Colonetti Bet}
+
+\local{Rio Claro -- SP}
+
+\data{2026}
+
+\orientador{Nome do orientador}
+
+\instituicao{
+Universidade Estadual Paulista ``Júlio de Mesquita Filho''\\
+Instituto de Geociências e Ciências Exatas\\
+Programa de Pós-Graduação em Geografia
+}
+
+\tipotrabalho{Tese de Doutorado}
+
+\preambulo{
+Tese apresentada ao Programa de Pós-Graduação em Geografia da Universidade Estadual Paulista ``Júlio de Mesquita Filho'', como parte dos requisitos para obtenção do título de Doutor.
+}
+
+% ----------------------------------------------------------
+% Capa personalizada
+% ----------------------------------------------------------
+
+\newcommand{\capaunesp}{
+
+\begin{titlingpage}
+
+\begin{tikzpicture}[remember picture,overlay]
+
+\node[
+anchor=south west,
+inner sep=0
+]
+at (current page.south west)
+{
+\includegraphics[
+width=\paperwidth,
+height=\paperheight
+]{imagens/fundo-capa.png}
+};
+
+\end{tikzpicture}
+
+\end{titlingpage}
+
+}
+
+% ----------------------------------------------------------
+% Estilo de página para numeração
+% ----------------------------------------------------------
+
+\makepagestyle{numeracao}
+
+\makeoddhead{numeracao}
+{}
+{}
+{\fontsize{10}{12}\selectfont\thepage}
+
+\makeevenhead{numeracao}
+{}
+{}
+{\fontsize{10}{12}\selectfont\thepage}
+
+\makeheadrule{numeracao}{0pt}{0pt}
+
+% Faz páginas de capítulo usarem este estilo
+\aliaspagestyle{chapter}{numeracao}
+
+% ----------------------------------------------------------
+% Início do documento
+% ----------------------------------------------------------
+
+\begin{document}
+
+% ----------------------------------------------------------
+% Elementos pré-textuais
+% ----------------------------------------------------------
+
+\capaunesp
+
+\imprimirfolhaderosto
+
+\input{pretextuais/folha-aprovacao}
+\input{pretextuais/agradecimentos}
+\input{pretextuais/epigrafe}
+\input{pretextuais/resumo}
+\input{pretextuais/abstract}
+\input{pretextuais/listas}
+
+\tableofcontents*
+
+% ----------------------------------------------------------
+% Corpo da tese
+% ----------------------------------------------------------
+
+\cleardoublepage
+
+% numeração das páginas a partir daqui
+
+\pagestyle{numeracao}
+
+
+\input{capitulos/introducao}
+
+\input{capitulos/capitulo1}
+
+\input{capitulos/capitulo2}
+
+\input{capitulos/capitulo3}
+
+\input{capitulos/conclusao}
+
+% ----------------------------------------------------------
+% Referências
+% ----------------------------------------------------------
+
+\printbibliography
+
+% ----------------------------------------------------------
+% Pós-textuais
+% ----------------------------------------------------------
+
+% \input{pos-textuais/apendices}
+% \input{pos-textuais/anexos}
+
+\end{document}
