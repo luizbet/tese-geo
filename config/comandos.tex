@@ -1,0 +1,85 @@
+% ========================================
+% COMANDOS PARA FORMATAÇÃO DA TESE UNESP
+% ========================================
+
+% ----- DEFINIÇÃO DOS AMBIENTES PRÉ-TEXTUAIS -----
+\newenvironment{dedicatoria}{%
+    \cleardoublepage
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \begin{flushright}
+    \itshape
+}{%
+    \end{flushright}
+    \vspace*{\fill}
+    \cleardoublepage
+}
+
+\newenvironment{agradecimentos}{%
+    \cleardoublepage
+    \thispagestyle{empty}
+    \chapter*{AGRADECIMENTOS}
+}{%
+    \cleardoublepage
+}
+
+\newenvironment{epigrafe}{%
+    \cleardoublepage
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    \begin{flushright}
+    \itshape
+}{%
+    \end{flushright}
+    \vspace*{\fill}
+    \cleardoublepage
+}
+
+\newenvironment{resumo}{%
+    \cleardoublepage
+    \thispagestyle{empty}
+    \chapter*{RESUMO}
+    \vspace{0.5cm}
+}{%
+    \cleardoublepage
+}
+
+\newenvironment{abstract}{%
+    \cleardoublepage
+    \thispagestyle{empty}
+    \chapter*{ABSTRACT}
+    \vspace{0.5cm}
+}{%
+    \cleardoublepage
+}
+
+% ----- COMANDO PARA FIGURAS -----
+\newcommand{\figura}[4]{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#1]{#2}
+        \caption{#3}
+        \label{fig:#4}
+    \end{figure}
+}
+
+% ----- COMANDO PARA TABELAS -----
+\newcommand{\tabela}[4]{%
+    \begin{table}[H]
+        \centering
+        \caption{#1}
+        \label{tab:#2}
+        #3
+        \fonte{#4}
+    \end{table}
+}
+
+\newcommand{\fonte}[1]{%
+    \vspace{0.2cm}
+    \par\small\textbf{Fonte:} #1
+}
+
+\newcommand{\nota}[1]{%
+    \vspace{0.2cm}
+    \par\small\textbf{Nota:} #1
+}

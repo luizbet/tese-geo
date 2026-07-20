@@ -1,0 +1,50 @@
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+    % Imagem de fundo
+    \node[inner sep=0pt, outer sep=0pt] at (current page.center) {%
+        \includegraphics[width=\paperwidth, height=\paperheight]{figuras/capa-igce-geo.pdf}%
+    };
+    
+    % Nome do autor: Arial, bold, 14pt, caixa alta (202pt da base)
+    \node[anchor=south, font=\fontspec{Arial}\fontsize{14pt}{16pt}\bfseries\selectfont, yshift=202pt] at (current page.south) {%
+        \MakeUppercase{\autor}%
+    };
+    
+    % Caixa de texto para Título + Subtítulo (130pt da base)
+    % Ajustada com xshift para centralizar corretamente
+    \node[anchor=south, yshift=130pt, xshift=-1mm] at (current page.center |- current page.south) {%
+        \parbox{148mm}{%
+            \centering
+            % Borda BRANCA ao redor da caixa (invisível)
+            \fcolorbox{white}{white}{%
+                \parbox{\linewidth}{%
+                    \centering
+                    \vspace{2pt}
+                    % Título: Arial, bold, 16pt, caixa alta
+                    {\fontspec{Arial}\fontsize{16pt}{18pt}\bfseries\selectfont%
+                        \MakeUppercase{\titulo}%
+                    \par}%
+                    \vspace{2pt}% Espaço entre título e subtítulo
+                    % Subtítulo: Arial, bold, 16pt, caixa alta
+                    {\fontspec{Arial}\fontsize{16pt}{16pt}\bfseries\selectfont%
+                        \MakeUppercase{\subtitulo}%
+                    \par}%
+                    \vspace{2pt}
+                }%
+            }%
+        }%
+    };
+    
+    % Cidade: Arial, bold, 12pt, caixa alta (50pt da base)
+    \node[anchor=south, font=\fontspec{Arial}\fontsize{12pt}{16pt}\bfseries\selectfont, yshift=50pt] at (current page.south) {%
+        \MakeUppercase{\cidade}%
+    };
+    
+    % Ano: Arial, bold, 12pt, caixa alta (30pt da base)
+    \node[anchor=south, font=\fontspec{Arial}\fontsize{12pt}{16pt}\bfseries\selectfont, yshift=30pt] at (current page.south) {%
+        \MakeUppercase{\ano}%
+    };
+\end{tikzpicture}
+
+\clearpage

@@ -1,79 +1,68 @@
 {
-    "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/out",
-
-    "latex-workshop.latex.autoBuild.run": "onSave",
-
-    "latex-workshop.view.pdf.viewer": "tab",
-
-    "latex-workshop.synctex.afterBuild.enabled": true,
-
-    "latex-workshop.latex.clean.fileTypes": [
-        "*.aux",
-        "*.bbl",
-        "*.bcf",
-        "*.blg",
-        "*.fdb_latexmk",
-        "*.fls",
-        "*.log",
-        "*.lof",
-        "*.lot",
-        "*.nav",
-        "*.out",
-        "*.run.xml",
-        "*.snm",
-        "*.synctex.gz",
-        "*.toc"
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex -> bibtex -> xelatex -> xelatex",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        }
     ],
-
     "latex-workshop.latex.tools": [
         {
-            "name": "latexmk",
-            "command": "latexmk",
+            "name": "xelatex",
+            "command": "xelatex",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
-                "-pdf",
-                "-outdir=%WORKSPACE_FOLDER%/out",
+                "-output-directory=out",
                 "%DOC%"
             ]
         },
         {
-            "name": "biber",
-            "command": "biber",
+            "name": "bibtex",
+            "command": "bibtex",
             "args": [
                 "%DOCFILE%"
             ]
         }
     ],
-
-    "latex-workshop.latex.recipes": [
-        {
-            "name": "latexmk (biber)",
-            "tools": [
-                "latexmk"
-            ]
-        }
+    "latex-workshop.latex.outDir": "out",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.zoom": "page-fit",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.autoBuild.cleanAndRetry": true,
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.nav",
+        "*.snm",
+        "*.vrb",
+        "*.dvi",
+        "*.synctex.gz"
     ],
-
-    "latex-workshop.latex.rootFile.useSubFile": true,
-
-    "cSpell.language": "pt,pt-BR,en",
-
-    "cSpell.words": [
-        "latexmk",
-        "synctex",
-        "nonstopmode",
-        "bibtex",
-        "biblatex",
-        "biber",
-        "xelatex",
-        "pdflatex",
-        "Marini",
-        "Jabbour",
-        "Lefebvre",
-        "Chesnais",
-        "imperialismo",
-        "multipolaridade"
+    "cSpell.language": "pt,en",
+    "cSpell.enableFiletypes": [
+        "latex"
     ]
 }
