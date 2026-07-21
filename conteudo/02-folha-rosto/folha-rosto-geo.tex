@@ -1,29 +1,116 @@
 \thispagestyle{empty}
 
-\begin{center}
-    \vspace*{2cm}
-    \large\textbf{\autor}
-    \vspace{4cm}
+\begin{tikzpicture}[remember picture, overlay]
+    % ===== IMAGEM DE FUNDO (REMOVER) =====
+    % \node[inner sep=0pt, outer sep=0pt] at (current page.center) {%
+    %     \includegraphics[width=\paperwidth, height=\paperheight]{figuras/folha-rosto-base-geo.pdf}%
+    % };
     
-    \Huge\textbf{\titulo}
-    \vspace{2cm}
+    % ===== CABEÇALHO (topo) =====
+    \node[anchor=north, yshift=-3cm, align=center] at (current page.north) {%
+        \parbox{0.9\paperwidth}{%
+            \centering
+            \color{black}%
+            \setlength{\parskip}{0pt}%
+            \setlength{\baselineskip}{14pt}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\bfseries\selectfont%
+                \MakeUppercase{\universidade}}%
+            \\[0pt]%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                ``\universidadenome''}%  <-- ASPAS CORRIGIDAS
+            \\[0pt]%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \institutenome}%
+            \\[0pt]%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \campus}%
+        }%
+    };
     
-    \large{\tipotxt\ apresentada ao \programa \\
-    do \institutenome\ da \universidade \\
-    como requisito parcial para obtenção \\
-    do título de \grautxt.}
-    \vspace{0.5cm}
+    % ===== NOME DO AUTOR =====
+    \node[anchor=south, yshift=605pt, align=center] at (current page.south) {%
+        \parbox{0.9\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{16pt}\bfseries\selectfont%
+                \MakeUppercase{\autor}}%
+        }%
+    };
     
-    \large{Área de Concentração: \area}
-    \vspace{0.5cm}
+    % ===== TÍTULO =====
+    \node[anchor=south, yshift=506pt, align=center] at (current page.south) {%
+        \parbox{0.9\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{14pt}{16pt}\bfseries\selectfont%
+                \MakeUppercase{\titulo}}%
+        }%
+    };
     
-    \large{Linha de Pesquisa: \linhapesquisa}
-    \vspace{2cm}
+    % ===== SUBTÍTULO =====
+    \node[anchor=south, yshift=472pt, align=center] at (current page.south) {%
+        \parbox{0.7\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{14pt}{16pt}\bfseries\selectfont%
+                \MakeUppercase{\subtitulo}}%
+        }%
+    };
     
-    \large{Orientador: \orientadornome}
-    \vspace{3cm}
+    % ===== TEXTO DE APRESENTAÇÃO =====
+    \node[anchor=north, yshift=392pt, xshift=150pt, align=center] at (current page.south) {%
+        \parbox{0.85\paperwidth}{%
+            \centering
+            \color{black}%
+            \setlength{\parskip}{0pt}%
+            \setlength{\baselineskip}{9pt}%
+            \parbox{65mm}{%
+                \justifying
+                \hyphenpenalty=10000
+                \exhyphenpenalty=10000
+                \noindent
+                {\fontspec{Times New Roman}\fontsize{12pt}{11pt}\selectfont%
+                    \tipotxt\ de \graupor\ apresentada ao \institutenome\ %
+                    do \campus, da \universidade\ ``\universidadenome'', %
+                    como parte dos requisitos para obtenção do título de %
+                    \grauautor\ em \area.%
+                \par}%
+                \vspace{15pt}%
+                \noindent
+                {\fontspec{Times New Roman}\fontsize{12pt}{11pt}\selectfont%
+                    \orientadorfuncao: \orientadornome%
+                \par}%
+                \ifthenelse{\equal{\temcoorientador}{true}}{%
+                    \vspace{2pt}%
+                    \noindent
+                    {\fontspec{Times New Roman}\fontsize{12pt}{10pt}\selectfont%
+                        \coorientadorfuncao: \coorientadornome%
+                    \par}%
+                }{}%
+            }%
+        }%
+    };
     
-    \large\textbf{\cidade}
-    \vspace{0.1cm}
-    \large\textbf{\ano}
-\end{center}
+    % ===== CIDADE - ESTADO =====
+    \node[anchor=south, yshift=85pt, align=center] at (current page.south) {%
+        \parbox{0.9\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \cidade\ - \estado}%
+        }%
+    };
+    
+    % ===== ANO =====
+    \node[anchor=south, yshift=72pt, align=center] at (current page.south) {%
+        \parbox{0.9\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \ano}%
+        }%
+    };
+    
+\end{tikzpicture}
+
+\clearpage

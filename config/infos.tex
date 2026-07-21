@@ -2,52 +2,98 @@
 % INFORMAÇÕES DA TESE - UNESP
 % ========================================
 
+% ----- DADOS PESSOAIS -----
 \newcommand{\autor}{Luiz André Colonetti Bet}
 \newcommand{\autorcitacao}{BET, Luiz André Colonetti.}
+\newcommand{\autorgenero}{m}
 
-\def\curso{geografia}  % geografia ou educacao
+\def\curso{geografia}
+\def\grau{Doutor}
 
-\def\grau{Doutor}  % Mestre ou Doutor
-
+% ----- ORIENTADOR -----
 \newcommand{\orientador}{José Gilberto de Souza}
 \newcommand{\orientadortitulo}{Prof. Dr.}
-\newcommand{\coorientador}{}
-\newcommand{\coorientadortitulo}{}
+\newcommand{\orientadorgenero}{m}
 
-\newcommand{\universidade}{Universidade Estadual Paulista}
-\newcommand{\universidadeabreviada}{UNESP}
-\newcommand{\campus}{Campus de Rio Claro}
+% ----- COORIENTADOR (deixe vazio se não houver) -----
+\newcommand{\coorientador}{Somente um teste}
+\newcommand{\coorientadortitulo}{Profa. Dra.}
+\newcommand{\coorientadorgenero}{f}
 
+% ----- CAMPUS -----
 \newcommand{\cidade}{Rio Claro}
 \newcommand{\estado}{SP}
+\newcommand{\campus}{\textit{Câmpus} de \cidade}
 \newcommand{\pais}{Brasil}
 
 \newcommand{\ano}{\the\year}
 \newcommand{\mes}{Julho}
 
+% ----- DATA DA DEFESA (usando datetime2) -----
+\DTMsavedate{datadefesa}{2026-07-25}
+\newcommand{\datadefesaextenso}{\DTMusedate{datadefesa}}
+
 % ----- TÍTULO E SUBTÍTULO -----
-\newcommand{\titulo}{O Imperialismo e a Forma-Valor:}
+\newcommand{\titulo}{Imperialismo e a forma-valor:}
 \newcommand{\subtitulo}{China, concorrência destrutiva e a queda tendencial da taxa de lucro}
-\newcommand{\tituloingles}{Title in English}
+\newcommand{\tituloingles}{Imperialism and the Value-Form:}
+\newcommand{\subtituloingles}{China, Destructive Competition and the Tendential Fall in the Rate of Profit}
 
-\newcommand{\resumotexto}{Escreva aqui o resumo em português.}
-\newcommand{\palavraschave}{Palavra1, palavra2, palavra3}
+% ----- PALAVRAS-CHAVE (PORTUGUÊS) -----
+\newcommand{\palavrachaveum}{Geografia}
+\newcommand{\palavrachavedois}{Imperialismo}
+\newcommand{\palavrachavetres}{China}
+\newcommand{\palavrachavequatro}{Taxa de lucro}
+\newcommand{\palavrachavecinco}{}  % Deixe vazio se não houver
 
-\newcommand{\abstracttexto}{Write the abstract in English here.}
-\newcommand{\keywords}{Keyword1, keyword2, keyword3}
+% ----- KEYWORDS (INGLÊS) -----
+\newcommand{\keywordum}{Geography}
+\newcommand{\keyworddois}{Imperialism}
+\newcommand{\keywordtres}{China}
+\newcommand{\keywordquatro}{Rate of profit}
+\newcommand{\keywordcinco}{}  % Deixe vazio se não houver
+
+% ----- BANCA EXAMINADORA -----
+\newcommand{\membrodois}{Nome do Membro 2}
+\newcommand{\titulomembrodois}{Prof. Dr.}
+\newcommand{\instmembrodois}{Universidade do Exemplo}
+\newcommand{\siglamembrodois}{EXEMPLO}
+
+\newcommand{\membrotres}{Nome do Membro 3}
+\newcommand{\titulomembrotres}{Profa. Dra.}
+\newcommand{\instmembrotres}{Universidade do Exemplo}
+\newcommand{\siglamembrotres}{EXEMPLO}
+
+\newcommand{\membroquatro}{Nome do Membro 4}
+\newcommand{\titulomembroquatro}{Prof. Dr.}
+\newcommand{\instmembroquatro}{Universidade do Exemplo}
+\newcommand{\siglamembroquatro}{EXEMPLO}
+
+\newcommand{\membrocinco}{Nome do Membro 5}
+\newcommand{\titulomembrocinco}{Profa. Dra.}
+\newcommand{\instmembrocinco}{Universidade do Exemplo}
+\newcommand{\siglamembrocinco}{EXEMPLO}
+
+% ========================================
+% INFORMAÇÕES INSTITUCIONAIS (NÃO ALTERAR)
+% ========================================
+
+\newcommand{\universidade}{Universidade Estadual Paulista}
+\newcommand{\universidadenome}{Júlio de Mesquita Filho}
+\newcommand{\universidadeabreviada}{UNESP}
 
 % ========================================
 % COMANDOS DERIVADOS (NÃO ALTERAR)
 % ========================================
 
-\ifstrequal{\curso}{geografia}{%
+\ifthenelse{\equal{\curso}{geografia}}{%
     \newcommand{\institutenome}{Instituto de Geociências e Ciências Exatas}
     \newcommand{\institutoabreviado}{IGCE}
     \newcommand{\programa}{Programa de Pós-Graduação em Geografia}
     \newcommand{\area}{Geografia}
     \newcommand{\linhapesquisa}{Linha de Pesquisa em Geografia}
 }{%
-    \ifstrequal{\curso}{educacao}{%
+    \ifthenelse{\equal{\curso}{educacao}}{%
         \newcommand{\institutenome}{Instituto de Biociências}
         \newcommand{\institutoabreviado}{IB}
         \newcommand{\programa}{Programa de Pós-Graduação em Educação}
@@ -62,7 +108,7 @@
     }%
 }
 
-\ifstrequal{\grau}{Mestre}{%
+\ifthenelse{\equal{\grau}{Mestre}}{%
     \newcommand{\grautxt}{Mestre}
     \newcommand{\tipotxt}{Dissertação}
     \newcommand{\graupor}{Mestrado}
@@ -72,10 +118,46 @@
     \newcommand{\graupor}{Doutorado}
 }
 
+\ifthenelse{\equal{\autorgenero}{m}}{%
+    \ifthenelse{\equal{\grau}{Mestre}}{%
+        \newcommand{\grauautor}{Mestre}
+    }{%
+        \newcommand{\grauautor}{Doutor}
+    }%
+}{%
+    \ifthenelse{\equal{\grau}{Mestre}}{%
+        \newcommand{\grauautor}{Mestra}
+    }{%
+        \newcommand{\grauautor}{Doutora}
+    }%
+}
+
+\ifthenelse{\equal{\orientadorgenero}{m}}{%
+    \newcommand{\orientadorfuncao}{Orientador}
+    \newcommand{\orientadorartigo}{o}
+    \newcommand{\orientadorpreposicao}{do}
+}{%
+    \newcommand{\orientadorfuncao}{Orientadora}
+    \newcommand{\orientadorartigo}{a}
+    \newcommand{\orientadorpreposicao}{da}
+}
+
 \newcommand{\orientadornome}{\orientadortitulo\ \orientador}
 
-\ifx\coorientador\empty
+\ifthenelse{\equal{\coorientadorgenero}{m}}{%
+    \newcommand{\coorientadorfuncao}{Coorientador}
+    \newcommand{\coorientadorartigo}{o}
+    \newcommand{\coorientadorpreposicao}{do}
+}{%
+    \newcommand{\coorientadorfuncao}{Coorientadora}
+    \newcommand{\coorientadorartigo}{a}
+    \newcommand{\coorientadorpreposicao}{da}
+}
+
+\ifthenelse{\equal{\coorientador}{}}{%
+    \newcommand{\temcoorientador}{false}
     \newcommand{\coorientadornome}{}
-\else
+}{%
+    \newcommand{\temcoorientador}{true}
     \newcommand{\coorientadornome}{\coorientadortitulo\ \coorientador}
-\fi
+}

@@ -1,0 +1,163 @@
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+    
+    % ===== 1. CABEÇALHO (topo) =====
+    \node[anchor=north, yshift=-3cm, align=center] at (current page.north) {%
+        \parbox{0.9\paperwidth}{%
+            \centering
+            \color{black}%
+            \setlength{\parskip}{0pt}%
+            \setlength{\baselineskip}{14pt}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\bfseries\selectfont%
+                \MakeUppercase{\universidade}}%
+            \\[0pt]%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                ``\universidadenome''}%
+            \\[0pt]%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \institutenome}%
+            \\[0pt]%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \campus}%
+        }%
+    };
+    
+    % ===== 2. NOME DO AUTOR =====
+    \node[anchor=south, yshift=647pt, align=center] at (current page.south) {%
+        \parbox{0.9\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{16pt}\bfseries\selectfont%
+                \MakeUppercase{\autor}}%
+        }%
+    };
+    
+    % ===== 3. TÍTULO =====
+    \node[anchor=south, yshift=590pt, align=center] at (current page.south) {%
+        \parbox{0.9\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{14pt}{16pt}\bfseries\selectfont%
+                \MakeUppercase{\titulo}}%
+        }%
+    };
+    
+    % ===== 4. SUBTÍTULO =====
+    \node[anchor=south, yshift=556pt, align=center] at (current page.south) {%
+        \parbox{0.7\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{14pt}{16pt}\bfseries\selectfont%
+                \MakeUppercase{\subtitulo}}%
+        }%
+    };
+    
+    % ===== 5. TEXTO DE APRESENTAÇÃO =====
+    \node[anchor=north, yshift=518pt, xshift=150pt, align=center] at (current page.south) {%
+        \parbox{0.85\paperwidth}{%
+            \centering
+            \color{black}%
+            \setlength{\parskip}{0pt}%
+            \setlength{\baselineskip}{9pt}%
+            \parbox{65mm}{%
+                \justifying
+                \hyphenpenalty=10000
+                \exhyphenpenalty=10000
+                \noindent
+                {\fontspec{Times New Roman}\fontsize{12pt}{11pt}\selectfont%
+                    \tipotxt\ de \graupor\ apresentada ao \institutenome\ %
+                    do \campus, da \universidade\ ``\universidadenome'', %
+                    como parte dos requisitos para obtenção do título de %
+                    \grauautor\ em \area.%
+                \par}%
+            }%
+        }%
+    };
+    
+    % ===== 6. BANCA EXAMINADORA =====
+    \node[anchor=north, yshift=380pt, align=center] at (current page.south) {%
+        \parbox{0.85\paperwidth}{%
+            \centering
+            \color{black}%
+            \setlength{\parskip}{0pt}%
+            \setlength{\baselineskip}{12pt}%
+            
+            % Título da banca (centralizado)
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\bfseries\selectfont%
+                Comissão Examinadora
+            \par}%
+            \vspace{10pt}%
+            
+            % ----- MEMBRO 1: ORIENTADOR (PRESIDENTE) -----
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \orientadortitulo\ \MakeUppercase{\orientador}%
+            \par}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{12pt}\selectfont%
+                \institutoabreviado / \universidadeabreviada / \cidade\ (\estado)%
+            \par}%
+            \vspace{10pt}%
+            
+            % ----- MEMBRO 2 -----
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \titulomembrodois\ \MakeUppercase{\membrodois}%
+            \par}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{12pt}\selectfont%
+                \instmembrodois\ (\siglamembrodois)%
+            \par}%
+            \vspace{9pt}%
+            
+            % ----- MEMBRO 3 -----
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \titulomembrotres\ \MakeUppercase{\membrotres}%
+            \par}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{12pt}\selectfont%
+                \instmembrotres\ (\siglamembrotres)%
+            \par}%
+            \vspace{9pt}%
+            
+            % ----- MEMBRO 4 -----
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \titulomembroquatro\ \MakeUppercase{\membroquatro}%
+            \par}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{12pt}\selectfont%
+                \instmembroquatro\ (\siglamembroquatro)%
+            \par}%
+            \vspace{9pt}%
+            
+            % ----- MEMBRO 5 -----
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \titulomembrocinco\ \MakeUppercase{\membrocinco}%
+            \par}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{12pt}\selectfont%
+                \instmembrocinco\ (\siglamembrocinco)%
+            \par}%
+        }%
+    };
+    
+    % ===== 7. CONCEITO (centralizado com makebox) =====
+    \node[anchor=south, yshift=114pt, align=center] at (current page.south) {%
+        \makebox[\textwidth]{%
+            \color{black}%
+            \setlength{\parskip}{0pt}%
+            \setlength{\baselineskip}{14pt}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                Conceito: \rule{3cm}{0.4pt}%
+            }%
+        }%
+    };
+    
+    % ===== 8. CIDADE, ESTADO E DATA (rodapé) =====
+    \node[anchor=south, yshift=70pt, align=center] at (current page.south) {%
+        \parbox{0.9\paperwidth}{%
+            \centering
+            \color{black}%
+            {\fontspec{Times New Roman}\fontsize{12pt}{14pt}\selectfont%
+                \cidade\ (\estado), \datadefesaextenso%
+            }%
+        }%
+    };
+    
+\end{tikzpicture}
+
+\clearpage

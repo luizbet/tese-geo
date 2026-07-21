@@ -1,0 +1,18 @@
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture, overlay]
+    % ===== VERIFICA SE O ARQUIVO FINAL EXISTE (caminho a partir da raiz) =====
+    \IfFileExists{conteudo/03-pre-textuais/ficha-cat/ficha-cat-final.pdf}{%
+        % ===== ARQUIVO FINAL ENCONTRADO - USA ELE =====
+        \node[inner sep=0pt, outer sep=0pt] at (current page.center) {%
+            \includegraphics[width=\paperwidth, height=\paperheight]{conteudo/03-pre-textuais/ficha-cat/ficha-cat-final.pdf}%
+        };
+    }{%
+        % ===== ARQUIVO FINAL NÃO ENCONTRADO - USA O MODELO =====
+        \node[inner sep=0pt, outer sep=0pt] at (current page.center) {%
+            \includegraphics[width=\paperwidth, height=\paperheight]{conteudo/03-pre-textuais/ficha-cat/ficha-cat-org.pdf}%
+        };
+    }%
+\end{tikzpicture}
+
+\clearpage
